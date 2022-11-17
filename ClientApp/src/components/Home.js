@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { TodoInput } from './TodoInput';
 
 export class Home extends Component {
     static displayName = Home.name;
@@ -36,10 +37,13 @@ export class Home extends Component {
             : Home.renderTodos(this.state.todos);
 
         return (
-            <div>
-                <h1 className="text-center">Todos</h1>
-                <div className="todos">{contents}</div>
-            </div>
+            <>
+                <div>
+                    <h1 className="text-center">Todos</h1>
+                    <div className="todos">{contents}</div>
+                </div>
+                <TodoInput />
+            </>
         );
     }
 

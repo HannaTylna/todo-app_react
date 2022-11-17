@@ -25,6 +25,13 @@ code {
     width: 60%
 }
 
+.todo-input {
+    width: 80%;
+    border: 2px solid #26a69a;
+    box-shadow: 5px 5px 5px #26a69a;
+    margin: 40px auto;
+}
+
 @media only screen and (max-width: 990px) {
     .border-style {
         width: 60%;
@@ -42,5 +49,9 @@ code {
 
     .todos {
         width: 80%;
+    }
+
+    .todo-input {
+        width: 90%;
     }
 }
