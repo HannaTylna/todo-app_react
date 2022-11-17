@@ -3,56 +3,51 @@ import React, { Component } from 'react';
 export class Home extends Component {
     static displayName = Home.name;
 
-    /* constructor(props) {
-      super(props);
-      this.state = { forecasts: [], loading: true };
+    constructor(props) {
+        super(props);
+        this.state = { todos: [], loading: true };
     }
-  
+
     componentDidMount() {
-      this.populateWeatherData();
+        this.populateTodosData();
     }
-  
-    static renderForecastsTable(forecasts) {
-      return (
-        <table className='table table-striped' aria-labelledby="tabelLabel">
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Temp. (C)</th>
-              <th>Temp. (F)</th>
-              <th>Summary</th>
-            </tr>
-          </thead>
-          <tbody>
-            {forecasts.map(forecast =>
-              <tr key={forecast.date}>
-                <td>{forecast.date}</td>
-                <td>{forecast.temperatureC}</td>
-                <td>{forecast.temperatureF}</td>
-                <td>{forecast.summary}</td>
-              </tr>
-            )}
-          </tbody>
-        </table>
-      );
-    }*/
+
+    static renderTodos(todos) {
+        return (
+            <ol className="list-group list-group-numbered">
+                { todos.map(item =>
+
+                    <li key={item.id} className="list-group-item d-flex justify-content-between align-items-start">
+                        <div className="ms-2 me-auto">
+                            <div className="fw-bold text-uppercase">{item.todoTitle}</div>
+                            {item.todoDescription}
+                        </div>
+                    </li>
+                )}
+
+            </ ol>
+
+        )
+    }
 
     render() {
-        /*let contents = this.state.loading
-          ? <p><em>Loading...</em></p>
-          : FetchData.renderForecastsTable(this.state.forecasts);*/
+        let contents = this.state.loading
+            ? <p><em>Loading...</em></p>
+            : Home.renderTodos(this.state.todos);
 
         return (
             <div>
                 <h1 className="text-center">Todos</h1>
+                <div className="todos">{contents}</div>
             </div>
         );
     }
 
-    /*async populateWeatherData() {
-      const response = await fetch('weatherforecast');
-      const data = await response.json();
-      this.setState({ forecasts: data, loading: false });
-    }*/
+    async populateTodosData() {
+        const response = await fetch('https://localhost:7007/api/Todo');
+        const data = await response.json();
+        this.setState({ todos: data, loading: false });
+        console.log(data)
+    }
 
 }

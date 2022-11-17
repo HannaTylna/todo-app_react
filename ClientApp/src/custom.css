@@ -20,14 +20,27 @@ code {
     margin: 0 auto;
 }
 
+.todos {
+    margin: 0 auto;
+    width: 60%
+}
+
 @media only screen and (max-width: 990px) {
     .border-style {
         width: 60%;
+    }
+
+    .todos {
+        width: 70%;
     }
 }
 
 @media only screen and (max-width: 760px) {
     .border-style {
+        width: 80%;
+    }
+
+    .todos {
         width: 80%;
     }
 }
