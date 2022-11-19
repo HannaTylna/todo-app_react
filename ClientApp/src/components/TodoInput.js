@@ -60,7 +60,7 @@ export class TodoInput extends Component {
                 <div className="text-center">
                     <button onClick={this.onCreateTodo} className="btn waves-effect waves-light" type="submit" name="action">Save</button>
                 </div>
-            </div >
+            </div>
         );
     }
 }
